@@ -249,22 +249,68 @@ a.sidebar-nav-item:focus {
   color: #8f5536;
 }
 
-/* Project Lightpath customization */
+/* Project Lightpath customization, inspired by the Lightwell palette. */
+:root {
+  --lightwell-red: #ee0000;
+  --lightwell-red-dark: #a60000;
+  --lightwell-purple: #5e1b67;
+  --lightwell-ink: #151515;
+  --lightwell-gray: #6a6e73;
+  --lightwell-light: #f2f2f2;
+  --lightwell-border: #d2d2d2;
+}
+
+html {
+  font-family: "Red Hat Text", Helvetica, Arial, sans-serif;
+}
+body {
+  color: #383838;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: var(--lightwell-ink);
+  font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
+}
+
 .theme-base-0d .sidebar {
-  background: linear-gradient(160deg, #174f78 0%, #102f48 100%);
+  color: #d2d2d2;
+  background: var(--lightwell-ink);
 }
 .theme-base-0d .content a,
 .theme-base-0d .related-posts li a:hover {
-  color: #176b9c;
+  color: var(--lightwell-red-dark);
 }
 
+.well-mark {
+  width: calc(100% + 2rem);
+  margin: -2rem -1rem 1.5rem;
+  overflow: hidden;
+}
+.well-mark img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
 .sidebar-about h1 {
-  letter-spacing: -.03em;
+  font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -.04em;
 }
 .sidebar-about .lead {
-  color: rgba(255,255,255,.72);
+  color: #d2d2d2;
+}
+.sidebar-nav-item {
+  font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+.sidebar-nav-item.active {
+  color: #fff;
+  border-left: 3px solid var(--lightwell-red);
+  padding-left: .55rem;
 }
 .sidebar-footer {
+  color: #a3a3a3;
   font-size: .8rem;
 }
 
@@ -274,17 +320,19 @@ a.sidebar-nav-item:focus {
 .hero {
   padding-bottom: 2rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--lightwell-border);
 }
 .hero h1 {
-  max-width: 36rem;
+  max-width: 38rem;
   margin-top: .25rem;
   font-size: 2.5rem;
+  font-weight: 500;
   letter-spacing: -.025em;
 }
 .eyebrow {
   margin-bottom: .25rem;
-  color: #176b9c;
+  color: var(--lightwell-red-dark);
+  font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
   font-size: .75rem;
   font-weight: 700;
   letter-spacing: .12em;
@@ -300,24 +348,28 @@ a.sidebar-nav-item:focus {
   display: inline-block;
   padding: .55rem .9rem;
   color: #fff !important;
+  font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  background-color: #176b9c;
-  border: 2px solid #176b9c;
-  border-radius: 4px;
+  background-color: var(--lightwell-red);
+  border: 2px solid var(--lightwell-red);
+  border-radius: 3px;
 }
 .button:hover,
 .button:focus {
   text-decoration: none;
-  background-color: #104f74;
-  border-color: #104f74;
+  background-color: var(--lightwell-red-dark);
+  border-color: var(--lightwell-red-dark);
 }
 .button-secondary {
-  color: #176b9c !important;
+  color: var(--lightwell-ink) !important;
   background-color: transparent;
+  border-color: var(--lightwell-ink);
 }
 .button-secondary:hover,
 .button-secondary:focus {
   color: #fff !important;
+  background-color: var(--lightwell-ink);
+  border-color: var(--lightwell-ink);
 }
 .card-grid {
   display: grid;
@@ -326,13 +378,19 @@ a.sidebar-nav-item:focus {
 }
 .project-card {
   padding: 1.1rem;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(16,47,72,.05);
+  background: #fff;
+  border: 1px solid var(--lightwell-border);
+  border-radius: 3px;
+  box-shadow: 0 3px 12px rgba(21,21,21,.07);
+}
+.project-card:hover {
+  border-top-color: var(--lightwell-red);
+  box-shadow: 0 5px 18px rgba(94,27,103,.12);
 }
 .project-card h2,
 .project-card h3 {
   margin-top: 0;
+  font-weight: 500;
 }
 .project-card p:last-child {
   margin-bottom: 0;
@@ -347,15 +405,27 @@ a.sidebar-nav-item:focus {
 }
 .principles {
   padding: 1.25rem;
-  background: #f5f8fa;
-  border-left: .25rem solid #176b9c;
-  border-radius: 4px;
+  background: var(--lightwell-light);
+  border-left: .25rem solid var(--lightwell-red);
+  border-radius: 3px;
 }
 .principles h2 {
   margin-top: 0;
+  font-weight: 500;
 }
 .principles ul {
   margin-bottom: 0;
+}
+
+@media (min-width: 48em) {
+  .sidebar-sticky {
+    top: 0;
+    bottom: auto;
+  }
+  .well-mark {
+    width: calc(100% + 2rem);
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 58em) {
@@ -368,6 +438,14 @@ a.sidebar-nav-item:focus {
   }
   .card-grid .project-card a {
     margin-top: auto;
+  }
+}
+
+@media (max-width: 47.99em) {
+  .well-mark {
+    width: min(20rem, calc(100% + 2rem));
+    margin-right: auto;
+    margin-left: -1rem;
   }
 }
 
