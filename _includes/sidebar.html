@@ -1,0 +1,17 @@
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+      <p class="lead">{{ site.description }}</p>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Main navigation">
+      <a class="sidebar-nav-item{% if page.url == '/' %} active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+      <a class="sidebar-nav-item{% if page.url == '/projects/' %} active{% endif %}" href="{{ '/projects/' | relative_url }}">Projects</a>
+      <a class="sidebar-nav-item{% if page.url == '/about/' %} active{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
+      <a class="sidebar-nav-item" href="{{ site.project.github }}">GitHub</a>
+    </nav>
+
+    <p class="sidebar-footer">Open source on <a href="{{ site.project.github }}">GitHub</a><br>&copy; {{ site.time | date: '%Y' }} Project Lightpath</p>
+  </div>
+</aside>
